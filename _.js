@@ -1,4 +1,9 @@
-let _ = {};
+const _ = {
+    clamp (number, upper, lower){
+        const lowerClamped = Math.min(number, lower);
+        const upperClamped = Math.max(number, upper);
+    }
+};
 
 
 
