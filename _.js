@@ -5,7 +5,6 @@ const _ = {
     },
 
     inRange (number, start, end){
-
         if (end === undefined){
             end = start;
             start = 0;
@@ -17,6 +16,10 @@ const _ = {
         }
         if (number >= start && number < end) return true;
         return false;
+    },
+
+    words (string) {
+        return string.split(' ');
     }
 };
 
