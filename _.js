@@ -1,7 +1,7 @@
 const _ = {
-    clamp (number, upper, lower){
-        const lowerClamped = Math.min(number, lower);
-        const upperClamped = Math.max(number, upper);
+    clamp (number, lower, upper){
+        let lowerClamped = Math.max(number, lower);
+        return  Math.min(lowerClamped, upper);
     }
 };
 
