@@ -10,7 +10,7 @@ const _ = {
             start = 0;
         }
         if (start > end) {
-            let tempEnd = end;
+            const tempEnd = end;
             end = start;
             start = tempEnd;
         }
@@ -20,6 +20,13 @@ const _ = {
 
     words (string) {
         return string.split(' ');
+    },
+
+    pad (string, length) {
+        if (length <= string.length) return string;
+        const startPad = Math.floor((length - string.length) / 2);
+        const endPad = length - startPad - string.length;
+        return `${' '.repeat(startPad)}${string}${' '.repeat(endPad)}`;
     }
 };
 
