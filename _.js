@@ -1,11 +1,11 @@
 const _ = {
-    clamp (number, lower, upper){
+    clamp(number, lower, upper) {
         const lowerClamped = Math.max(number, lower);
-        return  Math.min(lowerClamped, upper);
+        return Math.min(lowerClamped, upper);
     },
 
-    inRange (number, start, end){
-        if (end === undefined){
+    inRange(number, start, end) {
+        if (end === undefined) {
             end = start;
             start = 0;
         }
@@ -18,47 +18,55 @@ const _ = {
         return false;
     },
 
-    words (string) {
+    words(string) {
         return string.split(' ');
     },
 
-    pad (string, length) {
+    pad(string, length) {
         if (length <= string.length) return string;
         const startPad = Math.floor((length - string.length) / 2);
         const endPad = length - startPad - string.length;
         return `${' '.repeat(startPad)}${string}${' '.repeat(endPad)}`;
     },
 
-    has (object, key) {
+    has(object, key) {
         return object.hasOwnProperty(key);
     },
 
-    invert (object) {
-        for (let key in object){
+    invert(object) {
+        for (let key in object) {
             const invProperty = object[key];
             const invKey = key;
-            object[invKey] = invProperty;  
+            object[invKey] = invProperty;
         }
         return object;
     },
 
-    findKey (object, predicate) {
-        for (let key in object){
+    findKey(object, predicate) {
+        for (let key in object) {
             if (predicate(object[key])) return key;
         }
-            return undefined;
+        return undefined;
     },
 
-    drop (array, n = 1) {
+    drop(array, n = 1) {
         return array.slice(n, array.length);
     },
 
-    dropWhile (array, predicate) {
+    dropWhile(array, predicate) {
         if (array.findIndex(predicate) === 0) {
             array.shift();
-            this.dropWhile(array,predicate);
-            }        
-    return array;
+            this.dropWhile(array, predicate);
+        }
+        return array;
+    },
+
+    chunk(array, chunkSize = 1) {
+        let chunkedArray = [];
+        for (let i = 0; i < array.length; i += chunkSize) {
+            chunkedArray.push(array.slice(i, i + chunkSize));
+        }
+        return chunkedArray;
     }
 };
 
