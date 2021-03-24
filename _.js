@@ -51,6 +51,14 @@ const _ = {
 
     drop (array, n = 1) {
         return array.slice(n, array.length);
+    },
+
+    dropWhile (array, predicate) {
+        if (array.findIndex(predicate) === 0) {
+            array.shift();
+            this.dropWhile(array,predicate);
+            }        
+    return array;
     }
 };
 
