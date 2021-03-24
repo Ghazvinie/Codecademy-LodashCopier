@@ -27,6 +27,10 @@ const _ = {
         const startPad = Math.floor((length - string.length) / 2);
         const endPad = length - startPad - string.length;
         return `${' '.repeat(startPad)}${string}${' '.repeat(endPad)}`;
+    },
+
+    has (object, key) {
+        return object.hasOwnProperty(key);
     }
 };
 
