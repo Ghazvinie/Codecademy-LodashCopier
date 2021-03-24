@@ -1,6 +1,6 @@
 const _ = {
     clamp (number, lower, upper){
-        let lowerClamped = Math.max(number, lower);
+        const lowerClamped = Math.max(number, lower);
         return  Math.min(lowerClamped, upper);
     },
 
@@ -35,11 +35,9 @@ const _ = {
 
     invert (object) {
         for (let key in object){
-            let tempStore = object[key];
-            let tempStore2 = key;
-            object = {};
-            key = tempStore;
-            object[key] = tempStore2;       
+            const invProperty = object[key];
+            const invKey = key;
+            object[invKey] = invProperty;  
         }
         return object;
     }
