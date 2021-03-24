@@ -31,6 +31,17 @@ const _ = {
 
     has (object, key) {
         return object.hasOwnProperty(key);
+    },
+
+    invert (object) {
+        for (let key in object){
+            let tempStore = object[key];
+            let tempStore2 = key;
+            object = {};
+            key = tempStore;
+            object[key] = tempStore2;       
+        }
+        return object;
     }
 };
 
